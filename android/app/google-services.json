@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "272905167275",
+    "project_id": "alfaaz-e211b",
+    "storage_bucket": "alfaaz-e211b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272905167275:android:b49a05bbdf980d130632ee",
+        "android_client_info": {
+          "package_name": "com.example.alfaaz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272905167275-9gq7n86mmec42b80ko39erioohr5rci2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alfaaz",
+            "certificate_hash": "237795367fd89a59fdd3a7c1d640e254dd8d9f85"
+          }
+        },
+        {
+          "client_id": "272905167275-6jeldk9d1avdg4rv3scsf79559grq577.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2tR9ZqwBNIqfDXysV8-N2g22pjq_eT2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272905167275-6jeldk9d1avdg4rv3scsf79559grq577.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
