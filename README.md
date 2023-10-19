@@ -1,16 +1,121 @@
-# alfaaz
+# Alfaaz
 
-A new Flutter project.
+Alfaaz is a all-in-one android app for connecting with people around you.
+
+With alfaaz, you can chat and meet new people with similar interests, whether you're looking for friends, partners, or professional connections.
+
+## 📜 Contents
+- [About](https://github.com/payalmangla17/smile_engage/#about)
+- [Download APK](https://github.com/payalmangla17/smile_engage/#download_apk)
+- [Features](https://github.com/payalmangla17/smile_engage/#features)
+- [Getting Started](https://github.com/payalmangla17/smile_engage/#getting_started)
+    - [Project Setup](https://github.com/payalmangla17/smile_engage/#started)
+    - [Coding Style & Conventions](https://github.com/payalmangla17/smile_engage/#coding_style)
+- [Development](https://github.com/payalmangla17/smile_engage/#development)
+    - [Overview of Codebase](https://github.com/payalmangla17/smile_engage/#codebase)
+    - [Contribution](https://github.com/payalmangla17/smile_engage/#contribution)
+- [Technologies Used](https://github.com/payalmangla17/smile_engage/#tech_used)
+- [App Permissions](https://github.com/payalmangla17/smile_engage/#permissions)
+- [Screenshots](https://github.com/payalmangla17/smile_engage/#demo)
+- [Project References](https://github.com/payalmangla17/smile_engage/#references)
+- [Future enhancement](https://github.com/payalmangla17/smile_engage/#enhancement)
+- [Connect with me](https://github.com/payalmangla17/smile_engage/#profile)
+
+## 👀	 About
+
+Smile Engage is a video conferencing application with rich integrated chat feature where one can discuss on topics and connect with other members.
+It implements the following features:
+  - **Instant Messaging:**
+    Communicate with others and have shared resources in an organised manner. Send GIF's, emojis, files, media in one to one or group chat.
+  - **Online Meetings:**
+    Connect with your mates easily by just clicking a button in the chat window.
+  - **Collaborate:**
+    Easily locate shared files, media in real time.
+    
+## 🚀	Features
+
+### 🤐	Chat Functionality
+- Create Group / personal chats outside a meeting
+- Pin messages.
+- Delete / edit messages.
+- Photo, Audio, Videos, etc.
+- GIFs via GIPHY
+- Chat reactions & Emojis.
+- Reply on threads.
+- Integrated Video rooms.
+- User mentions.
+- Mute Conversations
+
+### 📹 Video Conferencing Functionality
+- Toggle Video / Audio
+- Share Screen
+- Anonymous Join In
+- Raise Hand
+- Set Meeting Password
+- Share files
+- In meet private chat
+- Record the meeting
+- Share Links
+- Minimised mode
 
 ## Getting Started
+#### Project Setup
+Please refer to the following [guide](https://github.com/payalmangla17/smile_engage/wiki) for **_project setup_**.
+#### Coding Style & Conventions
+Please refer to following [wiki](https://github.com/payalmangla17/smile_engage/wiki/#coding) for **_coding style & conventions_**.
 
-This project is a starting point for a Flutter application.
+## Development
+### Overview of Codebase
+![image](https://user-images.githubusercontent.com/43950455/143718582-adbe3d65-e6cb-4fa2-ace8-025314e5ae04.png)
+For more details, please refer [here](https://github.com/payalmangla17/smile_engage/wiki/Codebase-Overview).
 
-A few resources to get you started if this is your first Flutter project:
+## 📑 Technologies Used
+- [Flutter](https://flutter.dev/)
+- Google Firebase for authentication and storage
+    - [firebase_core](https://pub.dev/packages/firebase_core)
+    - [firebase_auth](https://pub.dev/packages/firebase_auth)
+    - [firebase_realtime_database](https://pub.dev/packages/firebase_database)
+- Stream Chat SDK for Chat functionality
+    - [stream_chat_flutter](https://pub.dev/packages/stream_chat_flutter)
+    - [stream_chat_flutter_core](https://pub.dev/packages/stream_chat_flutter_core)
+    - [stream_chat_persistence](https://pub.dev/packages/stream_chat_persistence)
+    - [streaming_shared_preferences](https://pub.dev/packages/streaming_shared_preferences)
+    - [flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage)
+- Jitsi Meet SDK for video meetings & conferences
+    - [Jitsi Meet](https://pub.dev/packages/jitsi_meet)
+- Other dependencies in ```pubspec.yaml```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📸 Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 💻 UI
+
+Fully responsive UI and customizable over multiple screen sizes.
+
+### 📝 Coding Style
+
+Used Object Oriented Programming and Clean Code practices.
+
+## 🔐 App Permissions
+
+1. [Internet](https://developer.android.com/training/basics/network-ops/connecting)
+2. [Camera](https://developer.android.com/guide/topics/media/camera)
+3. [Microphone](https://medium.com/@martusheff/detect-microphone-input-volume-with-flutter-3e14d3aa3822#:~:text=Future%20startRecording()%20is,otherwise%2C%20false%20will%20be%20returned.)
+4. [Storage](https://mukhtharcm.com/storage-permission-in-flutter/)
+
+
+## 📋 Project References
+- [Flutter API](https://api.flutter.dev/index.html)
+- [Stream Chat API Docs](https://getstream.io/chat/docs/flutter-dart/)
+- [Pub.dev Api Reference](https://pub.dev/)
+- [Jitsi Meet](https://pub.dev/packages/jitsi_meet)
+- [Flutter Examples](https://github.com/GetStream/flutter-samples)
+- [Undraw](https://undraw.co/) for using the images for UI
+
+## 💡 Future Enhancement
+- Enabling Chat Lock feature
+- Integrating swipe keyboard
+- Integration of moderator
+- Sending calendar invites for the meeting
+
+## 🤝	 Connect with me
+[![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rahulmangla28/) [![image](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rahulmangla28)
