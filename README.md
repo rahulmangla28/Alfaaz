@@ -23,7 +23,7 @@ With alfaaz, you can chat and meet new people with similar interests, whether yo
 
 ## 👀	 About
 
-Smile Engage is a video conferencing application with rich integrated chat feature where one can discuss on topics and connect with other members.
+Alfaaz is a video conferencing application with rich integrated chat feature where one can discuss on topics and connect with other members.
 It implements the following features:
   - **Instant Messaging:**
     Communicate with others and have shared resources in an organised manner. Send GIF's, emojis, files, media in one to one or group chat.
@@ -87,11 +87,11 @@ For more details, please refer [here](https://github.com/payalmangla17/smile_eng
 
 ## 📸 Screenshots
 
-### 💻 UI
+## 💻 UI
 
 Fully responsive UI and customizable over multiple screen sizes.
 
-### 📝 Coding Style
+## 📝 Coding Style
 
 Used Object Oriented Programming and Clean Code practices.
 
