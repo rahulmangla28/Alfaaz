@@ -19,7 +19,7 @@ With alfaaz, you can chat and meet new people with similar interests, whether yo
 - [Future enhancement](https://github.com/rahulmangla28/Alfaaz/tree/master#-future-enhancement)
 - [Connect with me](https://github.com/rahulmangla28/Alfaaz/tree/master#-connect-with-me)
 
-## 👀	 About
+## 👀 About
 
 Alfaaz is a video conferencing application with rich integrated chat feature where one can discuss on topics and connect with other members.
 It implements the following features:
@@ -30,7 +30,7 @@ It implements the following features:
   - **Collaborate:**
     Easily locate shared files, media in real time.
     
-## 🚀	Features
+## ✨ Features
 
 ### 🤐	Chat Functionality
 - Create Group / personal chats outside a meeting
@@ -56,16 +56,41 @@ It implements the following features:
 - Share Links
 - Minimised mode
 
-## Getting Started
+## 🚀 Getting Started
 #### Project Setup
 Please refer to the following [guide](https://github.com/payalmangla17/smile_engage/wiki) for **_project setup_**.
 #### Coding Style & Conventions
 Please refer to following [wiki](https://github.com/payalmangla17/smile_engage/wiki/#coding) for **_coding style & conventions_**.
 
 ## Development
-### Overview of Codebase
+### Codebase Overview
+1. A bridge has been created to connect users to firebase server and stream chat server.
 ![image](https://user-images.githubusercontent.com/43950455/143718582-adbe3d65-e6cb-4fa2-ace8-025314e5ae04.png)
-For more details, please refer [here](https://github.com/payalmangla17/smile_engage/wiki/Codebase-Overview).
+
+2. There are three important things to notice that are common to all Flutter application using StreamChat:
+    - The Dart API client is initialized with your API Key
+    - The current user is set by calling connectUser on the client
+    - The client is then passed to the top-level StreamChat widget
+      
+3. The top level stream chat widget is returned in home_page.dart. StreamChat is an inherited widget and must be the parent of all Chat related widgets 4.To add data persistence ChatPersistenceClient is extended and passed as an instance to the StreamChatClient.
+   
+4. For more details, please refer [here](https://getstream.io/chat/flutter/tutorial/#add-stream-chat-to-your-flutter-application).
+
+### Directory structure of lib
+
+- components
+- config : Configuration used in the application
+- pages : The Widgets of all the pages / screens in the application
+    - authentication
+    - chat
+    - home
+    - introduction_animation
+    - meetings
+    - models
+    - ui
+- routes : Routes to navigate inside the app
+- services : Services for user authentication and stream chat client
+- main.dart : Entry point for the application
 
 ## 📑 Technologies Used
 - [Flutter](https://flutter.dev/)
