@@ -1,125 +1,152 @@
+import 'dart:async';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:alfaaz/pages/authentication/user_info_page.dart';
+import 'package:alfaaz/pages/home/home_page.dart';
+import 'package:alfaaz/routes/ui_routes.dart';
+import 'package:alfaaz/services/stream_chat/stream_chat_api.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
+import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
+import 'routes/app_routes.dart';
 
-void main() {
-  runApp(const MyApp());
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  static final navigatorKey = GlobalKey<NavigatorState>();
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp>
+{
+  // mixins implemented for multiple inheritance like functionality
+  InitData? _initData; //Nullable type indicated by ?
+  static final navigatorKey = GlobalKey<NavigatorState>();
+
+  Future<InitData> _initConnection() async {
+    String? apiKey, userId, token;
+    final secureStorage = FlutterSecureStorage();
+    /*FLutter Secure Storage is used to retain user details and preferences
+    in order to keep them saved on each new launch*/
+    apiKey = await secureStorage.read(key: kStreamApiKey);
+    userId = await secureStorage.read(key: kStreamUserId);
+    token = await secureStorage.read(key: kStreamToken);
+
+    final client = StreamChatClient(
+      apiKey ?? StreamApi.kDefaultStreamApiKey,
+      // ?? null-aware operator which returns the expression on its left
+      // unless that expression’s value is null
+      logLevel: Level.INFO,
+      //connectTimeout: Duration(milliseconds: 1000000000000000),
+    )..chatPersistenceClient = StreamApi.chatPersistentClient;
+    // shorthand setter for chatPersistentClient
+
+    StreamApi.setClient(client);
+    if (userId != null && token != null) {
+      await client.connectUser(
+        // Sets the current user and connect the websocket using the userID and token generated
+        /// a user token using our server SDK
+        User(id: userId),
+        token,
+      );
+    }
+
+    final prefs = await StreamingSharedPreferences.instance;
+    //Wraps Shared Preferences with a Stream-based layer,
+    //allowing you to listen to changes in the underlying values.
+
+    return InitData(client, prefs);
+  }
+
+  @override
+  void initState() {
+    // Sets the splash screen & animation delay
+    final timeOfStartMs = DateTime.now().millisecondsSinceEpoch;
+
+    _initConnection().then(
+          (initData) {
+        setState(() {
+          _initData = initData;
+        });
+        //sets the _init as a callback after the connection is established
+        // with the API
+
+        final now = DateTime.now().millisecondsSinceEpoch;
+
+
+
+      },
+
     );
-  }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        if (_initData != null)
+          PreferenceBuilder<int>(
+            preference: _initData!.preferences.getInt(
+              'theme',
+              defaultValue: 0,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            builder: (context, snapshot) => MaterialApp(
+              navigatorKey: navigatorKey,
+              // Initialising the theme of the application
+              theme: ThemeData.light(),
+              darkTheme: ThemeData.dark(),
+              themeMode: {
+                -1: ThemeMode.dark,
+                0: ThemeMode.system,
+                1: ThemeMode.light,
+              }[snapshot],
+              builder: (context, child) => StreamChatTheme(
+                data: StreamChatThemeData(
+                  brightness: Theme.of(context).brightness,
+                ),
+                child: child!,
+              ),
+              onGenerateRoute: AppRoutes.generateRoute,
+              onGenerateInitialRoutes: (initialRouteName) {
+                if (initialRouteName == Routes.home) {
+                  return [
+                    AppRoutes.generateRoute(
+                      RouteSettings(
+                        name: Routes.home,
+                        arguments: HomePageArgs(_initData!.client),
+                      ),
+                    )!
+                  ];
+                }
+                return [
+                  AppRoutes.generateRoute(
+                    const RouteSettings(
+                      name: Routes.intro,
+                    ),
+                  )!
+                ];
+              },
+              initialRoute: _initData!.client.state.currentUser == null
+              //Choose the launch screen on basis of the state of user login
+              // ? Routes.SIGN_IN
+                  ? Routes.intro
+                  : Routes.home,
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+          ),
+
+      ],
     );
   }
 }

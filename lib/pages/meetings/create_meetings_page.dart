@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:jitsi_meet/jitsi_meet.dart';
+//import 'package:jitsi_meet/jitsi_meet.dart';
 
 import 'package:alfaaz/config/constants.dart';
 import 'package:alfaaz/pages/ui/drawer.dart';
+import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 import 'package:uuid/uuid.dart';
 
@@ -16,27 +17,28 @@ class CreateMeetingsPage extends StatefulWidget {
 
   static joinMeet(String code) async {
     try {
-      Map<FeatureFlagEnum, bool> featureFlags = {
-        FeatureFlagEnum.WELCOME_PAGE_ENABLED: false
-      };
-      if (Platform.isAndroid) {
-        featureFlags[FeatureFlagEnum.CALL_INTEGRATION_ENABLED] = false;
-      }
-      var options = JitsiMeetingOptions(room: code)
-        ..userDisplayName = LeftDrawer.userName
-        ..audioMuted = false
-        ..videoMuted = true
-        ..featureFlags.addAll(featureFlags);
+      // Map<FeatureFlagEnum, bool> featureFlags = {
+      //   FeatureFlagEnum.WELCOME_PAGE_ENABLED: false
+      // };
+      // if (Platform.isAndroid) {
+      //   featureFlags[FeatureFlagEnum.CALL_INTEGRATION_ENABLED] = false;
+      // }
+      var options = JitsiMeetConferenceOptions(room: code, userInfo: JitsiMeetUserInfo(displayName: LeftDrawer.userName),configOverrides: {"startWithAudioMuted": false,
+        "startWithVideoMuted": false});
+        // ..userDisplayName = LeftDrawer.userName
+        // ..audioMuted = false
+        // ..videoMuted = true
+        // ..featureFlags.addAll(featureFlags);
 
-      await JitsiMeet.joinMeeting(options,
-      listener: JitsiMeetingListener(//todo to check
-        onConferenceTerminated: (meesage) {
-          Fluttertoast.showToast(msg: "Meeting has been ended by host!",
-            toastLength: Toast.LENGTH_LONG,
-            gravity: ToastGravity.CENTER,);
-
-        },
-      ));
+      await new JitsiMeet().join(options
+      // JitsiMeetEventListener(//todo to check
+      //   conferenceTerminated: (meesage) {
+      //     Fluttertoast.showToast(msg: "Meeting has been ended by host!",
+      //       toastLength: Toast.LENGTH_LONG,
+      //       gravity: ToastGravity.CENTER,);
+      //
+      //   },
+      );
     } catch (e) {
       print("Error: $e");
     }

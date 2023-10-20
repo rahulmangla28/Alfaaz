@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:alfaaz/config/constants.dart';
-import 'package:alfaaz/config/custome_colors.dart';
+import 'package:alfaaz/config/custom_colors.dart';
 import 'package:alfaaz/config/size_config.dart';
 import 'package:alfaaz/services/authentication/authentication.dart';
 

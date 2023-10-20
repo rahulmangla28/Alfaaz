@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'package:alfaaz/config/constants.dart';
@@ -8,7 +9,7 @@ import 'package:alfaaz/pages/ui/drawer.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 import 'dart:io';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:jitsi_meet/jitsi_meet.dart';
+//import 'package:jitsi_meet/jitsi_meet.dart';
 
 class JoinMeetingsPage extends StatefulWidget {
   const JoinMeetingsPage({Key? key}) : super(key: key);
@@ -29,23 +30,25 @@ class _JoinMeetingsPageState extends State<JoinMeetingsPage> {
 
   joinMeet() async {
     try {
-      Map<FeatureFlagEnum, bool> featureFlags = {
-        FeatureFlagEnum.WELCOME_PAGE_ENABLED: false
-      };
-      if (Platform.isAndroid) {
-        featureFlags[FeatureFlagEnum.CALL_INTEGRATION_ENABLED] = false;
-      }
+      // Map<FeatureFlagEnum, bool> featureFlags = {
+      //   FeatureFlagEnum.WELCOME_PAGE_ENABLED: false
+      // };
+      // if (Platform.isAndroid) {
+      //   featureFlags[FeatureFlagEnum.CALL_INTEGRATION_ENABLED] = false;
+      // }
       var _finalName = _namecontroller.text;
       if (_namecontroller.text.isEmpty) {
         _finalName = LeftDrawer.userName!;
       }
-      var options = JitsiMeetingOptions(room: _codecontroller.text)
-        ..userDisplayName = _isAnonymous ? "Anonymous User" : _finalName
-        ..audioMuted = _isAudioDisabled
-        ..videoMuted = _isVideoDisabled
-        ..featureFlags.addAll(featureFlags);
+      var options = JitsiMeetConferenceOptions(room: _codecontroller.text, userInfo: JitsiMeetUserInfo(displayName: _isAnonymous ? "Anonymous User" : _finalName),
+          configOverrides: {"startWithAudioMuted": false,
+            "startWithVideoMuted": false});
+        // ..userDisplayName = _isAnonymous ? "Anonymous User" : _finalName
+        // ..audioMuted = _isAudioDisabled
+        // ..videoMuted = _isVideoDisabled
+        // ..featureFlags.addAll(featureFlags);
 
-      await JitsiMeet.joinMeeting(options);
+      await new JitsiMeet().join(options);
     } catch (e) {
       print("Error: $e");
     }

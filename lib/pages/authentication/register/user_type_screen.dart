@@ -208,16 +208,17 @@ class _userTypeState extends State<UserType> {
                 List<dynamic>? l;
                 int ft = 0;
                 String org = textController.text;
-                FirebaseDatabase.instance
-                    .reference()
-                    .child('orgCode').once()
+                //FirebaseDatabase.instance.ref()
+                FirebaseDatabase.instance.ref('orgCode').get()
+                    // .reference()
+                    // .child('orgCode').once()
                     .then((DataSnapshot snap) {
                       print('abcd');
                   print(snap.value);
                   if (snap.exists) {
                     //ft=true;
 
-                   values = snap.value;
+                   values = snap.value as Map;
                    print(values);
                    print(org);
                     values.forEach((key, values) {
@@ -257,12 +258,12 @@ class _userTypeState extends State<UserType> {
                 print("code: $code");
                 // DatabaseReference ref=
                 DatabaseReference ref = await FirebaseDatabase.instance
-                    .reference()
-                    .child("organisation")
-                    .child(code);
+                    .ref("organisation/" + code);
+                    // .child("organisation")
+                    // .child(code);
                 //if(ref.child(code).child("users").) print("success");
                 //.then((DataSnapshot snapshot){
-                ref.once().then((DataSnapshot snap) {
+                ref.get().then((DataSnapshot snap) {
                   print(snap.value);
                   f = snap.exists;
                   print(f);
