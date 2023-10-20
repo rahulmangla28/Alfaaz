@@ -78,19 +78,19 @@ Please refer to following [wiki](https://github.com/payalmangla17/smile_engage/w
 
 ### Directory structure of lib
 
-- components
-- config : Configuration used in the application
-- pages : The Widgets of all the pages / screens in the application
-    - authentication
-    - chat
-    - home
-    - introduction_animation
-    - meetings
-    - models
-    - ui
-- routes : Routes to navigate inside the app
-- services : Services for user authentication and stream chat client
-- main.dart : Entry point for the application
+- [components](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/components)
+- [config](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/config) : Configuration used in the application
+- [pages](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/pages) : The Widgets of all the pages / screens in the application
+    - [authentication](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/pages/authentication)
+    - [chat](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/pages/chat)
+    - [home](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/pages/home)
+    - [introduction_animation](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/pages/introduction_animation)
+    - [meetings](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/pages/meetings)
+    - [models](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/pages/models)
+    - [ui](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/pages/ui)
+- [routes](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/routes) : Routes to navigate inside the app
+- [services](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/services) : Services for user authentication and stream chat client
+- [main.dart](https://github.com/rahulmangla28/Alfaaz/blob/master/lib/main.dart) : Entry point for the application
 
 ## 📑 Technologies Used
 - [Flutter](https://flutter.dev/)
