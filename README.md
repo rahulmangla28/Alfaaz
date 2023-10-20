@@ -117,6 +117,20 @@ Please refer to following [wiki](https://github.com/rahulmangla28/Alfaaz/wiki#co
 
 ## 📸 Screenshots
 
+Splash View | Welcome | Sign Up | Drawer
+--- | --- | --- | --- |
+<img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss1.jpg" height="350" width="200" > | <img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss3.jpg" height="350" width="200" > | <img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss5.jpg" height="350" width="200" > | <img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss7.jpg" height = "350" width="200" >
+
+Start New Chat | Group Functionality | Sending Files | Chat Window
+--- | --- | --- | --- |
+<img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss8.jpg" height="350" width="200" > | <img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss11.jpg" height="350" width="200" > | <img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss10.jpg" height="350" width="200" > | <img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss12.jpg" height = "350" width="200" >
+
+
+Meet View | Create Meet | Join Meet | Meet Chat
+--- | --- | --- | --- |
+<img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss6.jpg" height="350" width="200" > | <img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss13.jpg" height="350" width="200" > |<img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss14.jpg" height="350" width="200" > | <img src="https://github.com/rahulmangla28/Alfaaz/blob/master/Screenshots/ss15.jpg" height="350" width="200" >
+
+
 ## 💻 UI
 
 Fully responsive UI and customizable over multiple screen sizes.
