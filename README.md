@@ -58,9 +58,9 @@ It implements the following features:
 
 ## 🚀 Getting Started
 ### _Project Setup_
-Please refer to the following [guide](https://github.com/payalmangla17/smile_engage/wiki) for **_project setup_**.
+Please refer to the following [guide](https://github.com/rahulmangla28/Alfaaz/wiki) for **_project setup_**.
 ### _Coding Style & Conventions_
-Please refer to following [wiki](https://github.com/payalmangla17/smile_engage/wiki/#coding) for **_coding style & conventions_**.
+Please refer to following [wiki](https://github.com/rahulmangla28/Alfaaz/wiki#coding-style--conventions) for **_coding style & conventions_**.
 
 ## Development
 ### _Codebase Overview_
