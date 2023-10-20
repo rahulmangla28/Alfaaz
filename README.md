@@ -32,7 +32,7 @@ It implements the following features:
     
 ## ✨ Features
 
-### 🤐	Chat Functionality
+### 🤐	_Chat Functionality_
 - Create Group / personal chats outside a meeting
 - Pin messages.
 - Delete / edit messages.
@@ -44,7 +44,7 @@ It implements the following features:
 - User mentions.
 - Mute Conversations
 
-### 📹 Video Conferencing Functionality
+### 📹 _Video Conferencing Functionality_
 - Toggle Video / Audio
 - Share Screen
 - Anonymous Join In
@@ -57,13 +57,13 @@ It implements the following features:
 - Minimised mode
 
 ## 🚀 Getting Started
-#### Project Setup
+### _Project Setup_
 Please refer to the following [guide](https://github.com/payalmangla17/smile_engage/wiki) for **_project setup_**.
-#### Coding Style & Conventions
+### _Coding Style & Conventions_
 Please refer to following [wiki](https://github.com/payalmangla17/smile_engage/wiki/#coding) for **_coding style & conventions_**.
 
 ## Development
-### Codebase Overview
+### _Codebase Overview_
 1. A bridge has been created to connect users to firebase server and stream chat server.
 ![image](https://user-images.githubusercontent.com/43950455/143718582-adbe3d65-e6cb-4fa2-ace8-025314e5ae04.png)
 
@@ -76,7 +76,7 @@ Please refer to following [wiki](https://github.com/payalmangla17/smile_engage/w
    
 4. For more details, please refer [here](https://getstream.io/chat/flutter/tutorial/#add-stream-chat-to-your-flutter-application).
 
-### Directory structure of lib
+### _Directory structure of lib_
 
 - [components](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/components)
 - [config](https://github.com/rahulmangla28/Alfaaz/tree/master/lib/config) : Configuration used in the application
