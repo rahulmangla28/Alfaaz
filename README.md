@@ -1,8 +1,3 @@
-# Developer Details : 
-- Name : **Rahul Mangla**
-- University - **Indian Institute of Technology (IIT BHU) Varanasi**
-- Department - **Mechanical Engineering**
-
 # Alfaaz
 
 Alfaaz is a all-in-one android app for connecting with people around you.
